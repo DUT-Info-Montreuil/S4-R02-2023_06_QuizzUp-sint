@@ -1,4 +1,4 @@
-package entities.dto;
+package entities.bo;
 
 public class etgseg {
 }
