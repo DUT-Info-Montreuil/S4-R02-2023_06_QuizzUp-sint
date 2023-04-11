@@ -10,20 +10,20 @@ import modeles.ServiceQuizzQuest;
 
 public class ServiceStatsQuest implements ServiceQuizzQuest {
     @Override
-    public TopQuestionnaireBO recupererLesStats() throws PasDeStatsExceptions, NombreDeFoisJoueExceptions, NombreReponseExceptions {
+    public TopQuestionnaireBO recupererLesStats(QuestionnaireDTO questionnaireDTO) throws PasDeStatsExceptions, NombreDeFoisJoueExceptions, NombreReponseExceptions {
         TopQuestionnaireBO topQuestionnaire = new TopQuestionnaireBO();
-        topQuestionnaire.setIdQuestionnaire(QuestionnaireDTO.getId_questionnaire());
-        if (QuestionnaireDTO.getNbjouer() < 0)
+        topQuestionnaire.setIdQuestionnaire(questionnaireDTO.getId_questionnaire());
+        if (questionnaireDTO.getNbjouer() < 0)
             throw new NombreDeFoisJoueExceptions();
-        topQuestionnaire.setNbDeFoisJoueQuestionnaire(QuestionnaireDTO.getNbjouer());
+        topQuestionnaire.setNbDeFoisJoueQuestionnaire(questionnaireDTO.getNbjouer());
 
         QuestionDTO meilleurTaux;
         int i = 0;
         do {
-            meilleurTaux = QuestionnaireDTO.getQuestions().get(i);
+            meilleurTaux = questionnaireDTO.getQuestions().get(i);
         } while (meilleurTaux.getStatsQuestionDTO().getNbjouer()<=0);
 
-        for (QuestionDTO questionDTO : QuestionnaireDTO.getQuestions()) {
+        for (QuestionDTO questionDTO : questionnaireDTO.getQuestions()) {
             if (questionDTO.getStatsQuestionDTO() == null)
                 throw new PasDeStatsExceptions();
             if (questionDTO.getStatsQuestionDTO().getNbjouer() > topQuestionnaire.getNbDeFoisJoueQuestionnaire())
@@ -36,9 +36,9 @@ public class ServiceStatsQuest implements ServiceQuizzQuest {
                 meilleurTaux = questionDTO;
         }
         QuestionDTO  pireTaux;
-        pireTaux = QuestionnaireDTO.getQuestions().get(i);
+        pireTaux = questionnaireDTO.getQuestions().get(i);
 
-        for (QuestionDTO questionDTO : QuestionnaireDTO.getQuestions()) {
+        for (QuestionDTO questionDTO : questionnaireDTO.getQuestions()) {
             if (questionDTO.getStatsQuestionDTO().getNbjouer() > 0
                     && (float) questionDTO.getStatsQuestionDTO().getNbjouer()/questionDTO.getStatsQuestionDTO().getNbjouer() <
                     (float) pireTaux.getStatsQuestionDTO().getNbOk()/pireTaux.getStatsQuestionDTO().getNbjouer())
