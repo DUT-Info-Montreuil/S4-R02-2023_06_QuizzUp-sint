@@ -9,11 +9,11 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
-        <CLASSES />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../S4-R02-2023_06_QuizzUp_Questionnaire-sme/out/production/S4-R02-2023_06_QuizzUp_Questionnaire-sme" />
+        </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../S4-R02-2023_06_QuizzUp_Questionnaire-sme/src" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
