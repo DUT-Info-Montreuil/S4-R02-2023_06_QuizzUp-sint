@@ -1,0 +1,6 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "/Users/adil/Documents/ButINFO/QualiteDev/S4-R02-2023_06_QuizzUp_Questionnaire-sme/**/*.jar"
+  ]
+}
