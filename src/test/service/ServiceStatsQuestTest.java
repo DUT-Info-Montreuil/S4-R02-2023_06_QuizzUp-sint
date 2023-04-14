@@ -30,7 +30,7 @@ public class ServiceStatsQuestTest {
     }
 
     @Test
-    public void ServiceBestOfQuestionnaireCorrect()throws PasDeStatsExceptions, NombreDeFoisJoueExceptions, NombreReponseExceptions {
+    public void statsQuestCorrect() throws PasDeStatsExceptions, NombreDeFoisJoueExceptions, NombreReponseExceptions {
         ServiceStatsQuestCorrecte serviceCorrect = new ServiceStatsQuestCorrecte();
         QuestionDTO questionOcean = new QuestionDTO(1,"Quel est le plus grand océan du monde ?","Océan Pacifique","fr",1);
         QuestionDTO questionDesert = new QuestionDTO(2,"Quel est le plus grand désert du monde ?","Désert de l'Antarctique.","fr",1);
